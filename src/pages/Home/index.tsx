@@ -1,8 +1,14 @@
 import styles from "./home.module.css";
 import { Header } from "../../components/header";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export function Home() {
+  //pega o estado do redux
+  const { user, totalAlunos } = useSelector((rootReducer) => rootReducer.user);
+
+  console.log(user);
+
   function handleDeleteAddress() {
     alert("Endereço deletado com sucesso!");
   }
