@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 export function Home() {
   //pega o estado do redux
-  const { user, totalAlunos } = useSelector((rootReducer) => rootReducer.user);
+  const { user } = useSelector((rootReducer) => rootReducer.user);
 
   console.log(user);
 
@@ -31,9 +31,11 @@ export function Home() {
 
         <main className={styles.content}>
           <div className={styles.message}>
-            <h1 className={styles.title}>Olá Visitante, bem vindo!</h1>
+            <h1 className={styles.title}>
+              Olá {user ? user.name : "Visitante"}, bem vindo!
+            </h1>
 
-            <span>Email: ....</span>
+            <span>Email: {user ? user.email : "..."}</span>
 
             <strong className={styles.addressLabel}>Endereço atual:</strong>
             <div className={styles.address}>
